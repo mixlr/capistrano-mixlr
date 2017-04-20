@@ -7,15 +7,15 @@ namespace :defaults do
 end
 
 namespace :deploy do
-  after :started, 'notify_slack' do
+  after :started, 'notify_slack_on_start' do
     invoke 'mixlr:notify_slack_on_start'
   end
 
-  after :published, 'notify_slack' do
+  after :published, 'notify_slack_on_end' do
     invoke 'mixlr:notify_slack_on_end'
   end
 
-  after :rollback, 'notify_slack' do
+  after :rollback, 'notify_slack_on_rollback' do
     invoke 'mixlr:notify_slack_on_rollback'
   end
 end
