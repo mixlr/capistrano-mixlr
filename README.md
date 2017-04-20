@@ -10,6 +10,12 @@ Add this line to your application's Gemfile:
 gem 'capistrano-mixlr', github: 'mixlr/capistrano-mixlr'
 ```
 
+or
+
+```
+gem 'capistrano-mixlr', git: 'git@github.com:mixlr/capistrano-mixlr.git'
+```
+
 And then execute:
 
 ```
