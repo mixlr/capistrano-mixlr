@@ -2,7 +2,7 @@ require 'slack_updater'
 
 namespace :defaults do
   task :defaults do
-    set :slack_webhook_url -> { fetch(:slack_webhook_url) }
+    set :slack_webhook_url, -> { fetch(:slack_webhook_url) }
   end
 end
 
