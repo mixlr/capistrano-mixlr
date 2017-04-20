@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    capistrano-mixlr (0.0.1)
+    capistrano-mixlr (0.0.2)
       capistrano (= 3.4)
       slack-notifier (>= 2.1)
 
