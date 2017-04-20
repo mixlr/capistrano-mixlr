@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    capistrano-mixlr (0.0.2)
-      capistrano (= 3.4)
+    capistrano-mixlr (0.0.3)
+      capistrano (>= 3.4)
       slack-notifier (>= 2.1)
 
 GEM
