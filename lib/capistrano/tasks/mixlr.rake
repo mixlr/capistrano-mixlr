@@ -1,4 +1,4 @@
-require 'slack_updater'
+require 'slack_notifier'
 
 namespace :defaults do
   task :defaults do
@@ -49,7 +49,7 @@ namespace :mixlr do
   end
 
   def updater
-    @updater ||= SlackUpdater.new(
+    @updater ||= SlackNotifier.new(
       fetch(:slack_webhook_url),
       username: 'deploybot',
       icon_emoji: ':squirrel:'

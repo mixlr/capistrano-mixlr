@@ -15,6 +15,6 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files`.split($/)
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'capistrano', '= 3.4'
+  spec.add_dependency 'capistrano', '>= 3.4'
   spec.add_dependency 'slack-notifier', '>= 2.1'
 end

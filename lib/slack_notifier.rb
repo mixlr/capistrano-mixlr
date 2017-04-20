@@ -1,6 +1,6 @@
 require 'slack-notifier'
 
-class SlackUpdater
+class SlackNotifier
   def initialize(webhook_url)
     @webhook_url = webhook_url
   end
@@ -8,6 +8,7 @@ class SlackUpdater
   def ping(message, options={})
     options[:username] ||= 'opsbot'
     options[:icon_emoji] ||= ':robot_face:'
+
     slack.ping(message, options)
   end
 
