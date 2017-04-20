@@ -1,5 +1,11 @@
 require 'slack_updater'
 
+namespace :defaults do
+  task :defaults do
+    set :slack_webhook_url -> { fetch(:slack_webhook_url) }
+  end
+end
+
 namespace :deploy do
   after :started,   'mixlr:notify_slack_on_start'
   after :published, 'mixlr:notify_slack_on_end'
@@ -35,6 +41,10 @@ namespace :mixlr do
   end
 
   def updater
-    @updater ||= SlackUpdater.new(:testing, username: 'deploybot', icon_emoji: ':squirrel:')
+    @updater ||= SlackUpdater.new(
+      fetch(:slack_webhook_url),
+      username: 'deploybot',
+      icon_emoji: ':squirrel:'
+    )
   end
 end
