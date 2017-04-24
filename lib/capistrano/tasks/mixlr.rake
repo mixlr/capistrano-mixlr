@@ -34,7 +34,7 @@ namespace :mixlr do
 
     branch_name = `git rev-parse --abbrev-ref HEAD`.chomp
     stage = fetch(:stage)
-    roles = ENV['ROLES']
+    roles = ENV['ROLES'] || 'all'
     migrations = false
 
     updater.ping("#{deploy_username}: #{branch_name} :point_right: #{stage}(#{roles})#{' + migrations' if migrations}")
@@ -66,3 +66,4 @@ namespace :mixlr do
     )
   end
 end
+
