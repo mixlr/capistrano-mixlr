@@ -15,6 +15,10 @@ namespace :deploy do
     invoke 'mixlr:notify_slack_on_end'
   end
 
+  after :failed, 'notify_slack_on_failure' do
+    invoke 'mixlr:notify_slack_on_failure'
+  end
+
   after :rollback, 'notify_slack_on_rollback' do
     invoke 'mixlr:notify_slack_on_rollback'
   end
@@ -40,6 +44,12 @@ namespace :mixlr do
   task :notify_slack_on_end do
     stage = fetch(:stage)
     updater.ping(":thumbsup: #{stage}.")
+  end
+
+  desc 'Notify slack of deploy failed'
+  task :notify_slack_on_failure do
+    stage = fetch(:stage)
+    updater.ping(":thumbsdown: #{stage}.")
   end
 
   desc 'Notify slack of deploy rolled back'
