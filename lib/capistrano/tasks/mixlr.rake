@@ -32,12 +32,13 @@ namespace :mixlr do
       abort 'set git user.name config variable before deploying'
     end
 
+    app_name = fetch(:application)
     branch_name = `git rev-parse --abbrev-ref HEAD`.chomp
     stage = fetch(:stage)
     roles = ENV['ROLES'] || 'all'
     migrations = false
 
-    updater.ping("#{deploy_username}: #{branch_name} :point_right: #{stage}(#{roles})#{' + migrations' if migrations}")
+    updater.ping("#{deploy_username}: #{app_name}:#{branch_name} :point_right: #{stage}(#{roles})#{' + migrations' if migrations}")
   end
 
   desc 'Notify slack of deploy ended'
