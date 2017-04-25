@@ -1,13 +1,5 @@
 require 'capistrano/slack/notifier'
 
-namespace :defaults do
-  task :defaults do
-    set :slack_webhook_url, -> { fetch(:slack_webhook_url) }
-    set :slack_username,    -> { fetch(:slack_username, 'deploybot') }
-    set :slack_avatar,      -> { fetch(:slack_avatar, ':squirrel:') }
-  end
-end
-
 namespace :deploy do
   after :started, 'on_start' do
     invoke 'slack:on_start'
@@ -64,8 +56,8 @@ namespace :slack do
   def updater
     @updater ||= Capistrano::Slack::Notifier.new(
       fetch(:slack_webhook_url),
-      username: fetch(:slack_username),
-      icon_emoji: fetch(:slack_avatar)
+      username: fetch(:slack_username, 'deploybot'),
+      icon_emoji: fetch(:slack_avatar, ':squirrel:')
     )
   end
 end
