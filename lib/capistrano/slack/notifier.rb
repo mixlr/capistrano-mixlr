@@ -19,7 +19,7 @@ module Capistrano
       attr_reader :webhook_url, :options
 
       def slack
-        @slack ||= Slack::Notifier.new(webhook_url)
+        @slack ||= ::Slack::Notifier.new(webhook_url)
       end
     end
   end
