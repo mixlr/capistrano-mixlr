@@ -1,4 +1,4 @@
-require 'slack_notifier'
+require 'capistrano/slack/notifier'
 
 namespace :defaults do
   task :defaults do
