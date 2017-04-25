@@ -1,19 +1,19 @@
-# Capistrano::Mixlr
+# Capistrano::Slack
 
-Notify slack on deploy/rollback
+Notify slack on deploy start/end/rollback
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```
-gem 'capistrano-mixlr', github: 'mixlr/capistrano-mixlr'
+gem 'capistrano-slack', github: 'mixlr/capistrano-slack'
 ```
 
 or
 
 ```
-gem 'capistrano-mixlr', git: 'git@github.com:mixlr/capistrano-mixlr.git'
+gem 'capistrano-slack', git: 'https://github.com/mixlr/capistrano-slack'
 ```
 
 And then execute:
@@ -26,7 +26,7 @@ $ bundle
 
 ```
 # Capfile
-require 'capistrano/mixlr'
+require 'capistrano/slack'
 
 ```
 

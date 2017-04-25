@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    capistrano-mixlr (0.0.4)
+    capistrano-slack (0.0.6)
       capistrano (>= 3.4)
       slack-notifier (>= 2.1)
 
@@ -29,7 +29,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capistrano-mixlr!
+  capistrano-slack!
 
 BUNDLED WITH
    1.14.6
