@@ -38,7 +38,7 @@ namespace :slack do
     roles = ENV['ROLES'] || 'all'
     migrations = false
 
-    updater.ping("#{deploy_username}: #{app_name}:#{branch_name} :point_right: #{stage}(#{roles})#{' + migrations' if migrations}")
+    updater.ping("#{deploy_username}: #{app_name.downcase}:#{branch_name} :point_right: #{stage}(#{roles})#{' + migrations' if migrations}")
   end
 
   desc 'Notify slack of deploy ended'
