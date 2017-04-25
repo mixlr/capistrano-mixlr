@@ -8,10 +8,7 @@ module Capistrano
         @options     = options
       end
 
-      def ping(message, options = {})
-        options[:username] ||= 'deploybot'
-        options[:icon_emoji] ||= ':robot_face:'
-
+      def ping(message)
         slack.ping(message, options)
       end
 

@@ -34,4 +34,6 @@ Configurable options (to set in `config/deploy.rb`)
 
 ```
 slack_webhook_url: nil # REQUIRED, the slack webhook url to a channel to post to on deploy
+slack_username: deploybot # the username used in the slack notification
+slack_avatar: :squirrel: # the avatar of the user used in the slack notification
 ```
