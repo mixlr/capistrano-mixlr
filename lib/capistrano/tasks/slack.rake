@@ -1,23 +1,5 @@
 require 'capistrano/slack/notifier'
 
-namespace :deploy do
-  after :started, 'on_start' do
-    invoke 'slack:on_start'
-  end
-
-  after :published, 'on_end' do
-    invoke 'slack:on_end'
-  end
-
-  after :failed, 'on_failure' do
-    invoke 'slack:on_failure'
-  end
-
-  after :rollback, 'on_rollback' do
-    invoke 'slack:on_rollback'
-  end
-end
-
 namespace :slack do
   desc 'Notify slack of deploy started'
   task :on_start do
@@ -60,5 +42,12 @@ namespace :slack do
       icon_emoji: fetch(:slack_avatar, ':squirrel:')
     )
   end
+end
+
+namespace :deploy do
+  before :starting, 'slack:on_start'
+  after :finished, 'slack:on_end'
+  after :failed, 'slack:on_failure'
+  after :rollback, 'slack:on_rollback'
 end
 
