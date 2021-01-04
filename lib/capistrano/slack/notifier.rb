@@ -9,7 +9,10 @@ module Capistrano
       end
 
       def ping(message)
-        slack.ping(message, options)
+        begin
+          slack.ping(message, options)
+        rescue Slack::Notifier::APIError
+        end
       end
 
       private
